@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Upload</title>
+    <style>
+        img {
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+    </form>
+    <hr>
+    {% for img in images %}
+    <img src="{{img.images.url}}" alt="Image">
+    <h3>"{{img.label}}"</h3>
+    {% endfor %}
+    {% for img in dup_images %}
+    <img src="{{img.images.url}}" alt="Image">
+    <h3>"{{img.label}}"</h3>
+    {% endfor %}
+    <div class="border-top pt-3">
+        {% if images.0.pk %}
+        <small class="text-muted">
+            <h1><a href="{% url 'segment' %}">Segment Images</a></h1>
+        </small>
+        {% else %}
+        <h2>Submit images in order to segment</h2>
+        {% endif %}
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Upload</title>
+    <style>
+        img {
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+
+</head>
+<body>
+    
+    #This is where we need to segment and save the image
+    <hr>
+    <img src="{{cur_image.images.url}}" alt="Image">
+    <h3>"{{cur_image.label}}"</h3>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            <h1><a href="{% url 'distorted_segment' %}">Next Image</a></h1>
+        </small>
+    </div>
+</body>
+</html>
